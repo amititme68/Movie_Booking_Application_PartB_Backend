@@ -45,7 +45,7 @@ class Details extends Component {
             }]
         }
     }
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         let currentState = this.state;
         currentState.movie = moviesData.filter((mov) => {
             return mov.id === this.props.movieId
@@ -96,7 +96,7 @@ class Details extends Component {
                     </div>
                     <div className="middleDetails">
                         <div>
-                            <Typography variant="headline" component="h2">{movie.title} </Typography>
+                            <Typography variant="h4" component="h2">{movie.title} </Typography>
                         </div>
                         <br />
                         <div>

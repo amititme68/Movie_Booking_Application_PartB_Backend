@@ -6,6 +6,7 @@
 
    .App-logo{
     background:#ff7f7f;
+    position: relative;
     float: left;
     width: 15px;
     height: 35px;
