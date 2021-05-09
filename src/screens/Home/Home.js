@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Header from '../../common/header/Header'
 import './Home.css'
 
@@ -26,6 +27,7 @@ import Button from '@material-ui/core/Button';
 import genre from "../../common/genre";
 import artists from "../../common/artists";
 import genres from '../../common/genre';
+import Details from '../details/Details.js';
 
 const styles = theme => ({
     root: {
@@ -96,13 +98,12 @@ class Home extends Component {
     }
     
     movieClickHandler = (movieId) => {
-      this.props.history.push('/movie/' + movieId);
+        ReactDOM.render(<Details movieId={movieId} />, document.getElementById('root'));
     }
 
     
     render() {
         const { classes } = this.props;
-        console.log("Ayush" + this.state.movieName);
     var filterMovie=moviesData.filter((movie)=>{
     return(movie.title=== this.state.movieName ||this.state.artists.includes( (movie.artists[0].first_name+" "+movie.artists[0].last_name)))
   })
@@ -135,7 +136,7 @@ class Home extends Component {
                     <div className="left">
                         <GridList cellHeight={350} cols={4} className={classes.gridListMain}>
                             {filterMovie.map((movie) => (
-                                <GridListTile className="released-movie-grid-item"
+                                <GridListTile  onClick={() => this.movieClickHandler(movie.id)} className="released-movie-grid-item"
                                     key={"grid" + movie.id}
                                 >
                                     <img
@@ -174,7 +175,6 @@ class Home extends Component {
                                     <InputLabel htmlFor="select-multiple-checkbox">Genres</InputLabel>
                                     <Select
                                         multiple
-                                        input={<Input id="select-multiple-checkbox-genre" />}
                                         input={<Input id="select-multiple-checkbox-genre" />}
                                         renderValue={selected => selected.join(',')}
                                         value={this.state.genres}
