@@ -2,12 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './logo.svg'
-import Home from './screens/Home/Home'
-//import Header from './common/header/Header';
+import Controller from './screens/Controller';
 
-ReactDOM.render(
-    <>
-<Home />
-</>
-,document.getElementById('root'));
+ReactDOM.render(<Controller />, document.getElementById('root'));
 
