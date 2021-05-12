@@ -42,7 +42,7 @@ const styles = (theme) => ({
     cursor: "pointer",
   },
   formControl: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     minWidth: 240,
     maxWidth: 240,
   },
@@ -87,7 +87,7 @@ class Home extends Component {
         )
       );
     });
-    if (this.state.movieName.length == 0 && this.state.artists.length == 0) {
+    if (this.state.movieName.length === 0 && this.state.artists.length === 0) {
       filterMovie = moviesData;
     }
     return (
